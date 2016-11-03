@@ -13,7 +13,7 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "Danilov\\BootstrapPHP\\": "src/BootstrapPHP"
+      "BootstrapPHP\\": "src/BootstrapPHP/"
     }
   }
 }
