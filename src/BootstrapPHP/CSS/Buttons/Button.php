@@ -28,6 +28,7 @@ class Button extends Element
 
     protected $isBlock = false;
     protected $isActive = false;
+    protected $isDisabled = false;
 
     protected $label = '';
     protected $style = ButtonStyle::NORMAL;
@@ -47,13 +48,23 @@ class Button extends Element
         $this->isActive = $active;
     }
 
+    public function setDisabled($disabled = true)
+    {
+        $this->isDisabled = $disabled;
+    }
+
     public function __toString()
     {
-        return "<button type='button' class=\"btn {$this->style} {$this->size} {$this->block} {$this->getActive()}\">{$this->label}</button>";
+        return "<button type='button' class=\"btn {$this->style} {$this->size} {$this->block} {$this->getActive()}\" {$this->getDisabled()}>{$this->label}</button>";
     }
 
     protected function getActive()
     {
         return $this->isActive ? self::ACTIVE : '';
+    }
+
+    protected function getDisabled()
+    {
+        return $this->isDisabled ? 'disabled="disabled"' : '';
     }
 }
