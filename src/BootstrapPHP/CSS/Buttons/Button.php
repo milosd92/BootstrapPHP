@@ -24,13 +24,16 @@ use BootstrapPHP\Helpers\Element;
 class Button extends Element
 {
     const BLOCK = 'btn-block';
+    const ACTIVE = 'active';
+
+    protected $isBlock = false;
+    protected $isActive = false;
 
     protected $label = '';
     protected $style = ButtonStyle::NORMAL;
     protected $size = ButtonSize::NORMAL;
     protected $block = '';
-
-    protected $isBlock = false;
+    protected $active = '';
 
     public function __construct(array $options)
     {
@@ -39,8 +42,18 @@ class Button extends Element
         $this->block = $this->isBlock ? self::BLOCK : '';
     }
 
+    public function setActive($active = true)
+    {
+        $this->isActive = $active;
+    }
+
     public function __toString()
     {
-        return "<button type='button' class=\"btn {$this->style} {$this->size} {$this->block}\">{$this->label}</button>";
+        return "<button type='button' class=\"btn {$this->style} {$this->size} {$this->block} {$this->getActive()}\">{$this->label}</button>";
+    }
+
+    protected function getActive()
+    {
+        return $this->isActive ? self::ACTIVE : '';
     }
 }
