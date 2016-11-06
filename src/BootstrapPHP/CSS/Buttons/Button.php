@@ -11,7 +11,7 @@
 namespace BootstrapPHP\CSS\Buttons;
 
 
-use BootstrapPHP\Helpers\OptionsParser;
+use BootstrapPHP\Helpers\Element;
 
 /**
  * Class Button
@@ -21,16 +21,26 @@ use BootstrapPHP\Helpers\OptionsParser;
  * @package BootstrapPHP\CSS\Buttons
  * @author Milos Danilov <milosdanilov@gmail.com>
  */
-class Button
+class Button extends Element
 {
-    use OptionsParser;
+    const BLOCK = 'btn-block';
 
     protected $label = '';
     protected $style = ButtonStyle::NORMAL;
     protected $size = ButtonSize::NORMAL;
+    protected $block = '';
+
+    protected $isBlock = false;
+
+    public function __construct(array $options)
+    {
+        parent::__construct($options);
+
+        $this->block = $this->isBlock ? self::BLOCK : '';
+    }
 
     public function __toString()
     {
-        return "<button type='button' class=\"btn {$this->style} {$this->size}\">{$this->label}</button>";
+        return "<button type='button' class=\"btn {$this->style} {$this->size} {$this->block}\">{$this->label}</button>";
     }
 }
