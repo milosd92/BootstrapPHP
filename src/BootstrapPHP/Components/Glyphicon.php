@@ -13,6 +13,8 @@ namespace BootstrapPHP\Components;
 /**
  * Creates a Glyphicon
  *
+ * @link http://getbootstrap.com/components/#glyphicons
+ *
  * @package BootstrapPHP\Components
  * @author Milos Danilov <milosdanilov@gmail.com>
  */
