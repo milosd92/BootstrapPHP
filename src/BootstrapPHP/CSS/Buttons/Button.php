@@ -11,6 +11,7 @@
 namespace BootstrapPHP\CSS\Buttons;
 
 
+use BootstrapPHP\Components\Glyphicon;
 use BootstrapPHP\Helpers\Element;
 
 /**
@@ -41,11 +42,24 @@ class Button extends Element
     protected $label = '';
     protected $style = ButtonStyle::NORMAL;
     protected $size = ButtonSize::NORMAL;
+
+    /**
+     * @var \BootstrapPHP\Components\Glyphicon
+     */
     protected $glyphicon = null;
 
     protected $isBlock = false;
     protected $isActive = false;
     protected $isDisabled = false;
+
+    public function __construct(array $options)
+    {
+        parent::__construct($options);
+
+        if (!$this->glyphicon instanceof Glyphicon) {
+            throw new \InvalidArgumentException("Glyphicons must be instance of Glyphicon class");
+        }
+    }
 
     public function setActive($active = true)
     {
