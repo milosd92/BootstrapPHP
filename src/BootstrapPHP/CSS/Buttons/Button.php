@@ -34,11 +34,6 @@ class Button extends Element
     protected $isActive = false;
     protected $isDisabled = false;
 
-    public function __construct(array $options)
-    {
-        parent::__construct($options);
-    }
-
     public function setActive($active = true)
     {
         $this->isActive = $active;
