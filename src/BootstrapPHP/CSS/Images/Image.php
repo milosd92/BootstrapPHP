@@ -30,20 +30,27 @@ use BootstrapPHP\Helpers\Element;
 class Image extends Element
 {
     const RESPONSIVE = 'img-responsive';
+    const CENTERED = 'center-block';
 
     protected $src = '';
     protected $alt = '';
     protected $shape = '';
 
     protected $isResponsive = false;
+    protected $isCentered = false;
 
     protected function getResponsive()
     {
         return $this->isResponsive ? self::RESPONSIVE : '';
     }
 
+    protected function getCentered()
+    {
+        return $this->isCentered ? self::CENTERED : '';
+    }
+
     public function __toString()
     {
-        return "<img src='{$this->src}' class='{$this->getResponsive()} {$this->shape}' alt='{$this->alt}'>";
+        return "<img src='{$this->src}' class='{$this->getCentered()} {$this->getResponsive()} {$this->shape}' alt='{$this->alt}'>";
     }
 }
