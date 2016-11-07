@@ -41,6 +41,7 @@ class Button extends Element
     protected $label = '';
     protected $style = ButtonStyle::NORMAL;
     protected $size = ButtonSize::NORMAL;
+    protected $glyphicon = null;
 
     protected $isBlock = false;
     protected $isActive = false;
@@ -58,7 +59,7 @@ class Button extends Element
 
     public function __toString()
     {
-        return "<button type='button' class=\"btn {$this->style} {$this->size} {$this->getBlock()} {$this->getActive()}\" {$this->getDisabled()}>{$this->label}</button>";
+        return "<button type='button' class=\"btn {$this->style} {$this->size} {$this->getBlock()} {$this->getActive()}\" {$this->getDisabled()}>{$this->getGlyphicon()} {$this->label}</button>";
     }
 
     protected function getActive()
@@ -74,5 +75,10 @@ class Button extends Element
     protected function getBlock()
     {
         return $this->isBlock ? self::BLOCK : '';
+    }
+
+    protected function getGlyphicon()
+    {
+        return !is_null($this->glyphicon) ? $this->glyphicon : '';
     }
 }
