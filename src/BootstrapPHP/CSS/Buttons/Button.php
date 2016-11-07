@@ -59,7 +59,7 @@ class Button extends Element
 
     public function __toString()
     {
-        return "<button type='button' class=\"btn {$this->style} {$this->size} {$this->getBlock()} {$this->getActive()}\" {$this->getDisabled()}>{$this->getGlyphicon()} {$this->label}</button>";
+        return "<button type='button' class='{$this->getClasses()}' {$this->getDisabled()}>{$this->getContent()}</button>";
     }
 
     protected function getActive()
@@ -80,5 +80,21 @@ class Button extends Element
     protected function getGlyphicon()
     {
         return !is_null($this->glyphicon) ? $this->glyphicon : '';
+    }
+
+    protected function getContent()
+    {
+        $glyphicon = $this->getGlyphicon();
+
+        if (!empty($glyphicon)) {
+            return $glyphicon . ' ' . $this->label;
+        }
+
+        return $this->label;
+    }
+
+    protected function getClasses()
+    {
+        return trim("btn {$this->style} {$this->size} {$this->getBlock()} {$this->getActive()}");
     }
 }
