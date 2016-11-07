@@ -26,21 +26,17 @@ class Button extends Element
     const BLOCK = 'btn-block';
     const ACTIVE = 'active';
 
+    protected $label = '';
+    protected $style = ButtonStyle::NORMAL;
+    protected $size = ButtonSize::NORMAL;
+
     protected $isBlock = false;
     protected $isActive = false;
     protected $isDisabled = false;
 
-    protected $label = '';
-    protected $style = ButtonStyle::NORMAL;
-    protected $size = ButtonSize::NORMAL;
-    protected $block = '';
-    protected $active = '';
-
     public function __construct(array $options)
     {
         parent::__construct($options);
-
-        $this->block = $this->isBlock ? self::BLOCK : '';
     }
 
     public function setActive($active = true)
@@ -55,7 +51,7 @@ class Button extends Element
 
     public function __toString()
     {
-        return "<button type='button' class=\"btn {$this->style} {$this->size} {$this->block} {$this->getActive()}\" {$this->getDisabled()}>{$this->label}</button>";
+        return "<button type='button' class=\"btn {$this->style} {$this->size} {$this->getBlock()} {$this->getActive()}\" {$this->getDisabled()}>{$this->label}</button>";
     }
 
     protected function getActive()
@@ -66,5 +62,10 @@ class Button extends Element
     protected function getDisabled()
     {
         return $this->isDisabled ? 'disabled="disabled"' : '';
+    }
+
+    protected function getBlock()
+    {
+        return $this->isBlock ? self::BLOCK : '';
     }
 }
