@@ -18,11 +18,6 @@ namespace BootstrapPHP\CSS\Headings;
  */
 class H1 extends Heading
 {
-    public function __construct($content)
-    {
-        parent::__construct($content);
-    }
-
     public function __toString()
     {
         return "<h1>{$this->content}</h1>";
