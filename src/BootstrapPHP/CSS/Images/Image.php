@@ -24,6 +24,8 @@ use BootstrapPHP\Helpers\Element;
  * <li>isResponsive</li>
  * </ul>
  *
+ * @link http://getbootstrap.com/css/#images
+ *
  * @package BootstrapPHP\CSS\Images
  * @author Milos Danilov <milosdanilov@gmail.com>
  */
