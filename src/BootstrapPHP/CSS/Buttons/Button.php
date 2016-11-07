@@ -16,6 +16,18 @@ use BootstrapPHP\Helpers\Element;
 /**
  * Class Button
  *
+ * Creates a Bootstrap Button
+ *
+ * Available properties:
+ * <ul>
+ *  <li>label</li>
+ *  <li>style</li>
+ *  <li>size</li>
+ *  <li>isBlock</li>
+ *  <li>isActive</li>
+ *  <li>isDisabled</li>
+ * </ul>
+ *
  * @link http://getbootstrap.com/css/#buttons
  *
  * @package BootstrapPHP\CSS\Buttons
