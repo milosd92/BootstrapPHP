@@ -56,8 +56,11 @@ class Button extends Element
     {
         parent::__construct($options);
 
-        if (!$this->glyphicon instanceof Glyphicon) {
-            throw new \InvalidArgumentException("Glyphicons must be instance of Glyphicon class");
+        if (!is_null($this->glyphicon)) {
+
+            if (!$this->glyphicon instanceof Glyphicon) {
+                throw new \InvalidArgumentException("Glyphicons must be instance of Glyphicon class");
+            }
         }
     }
 
