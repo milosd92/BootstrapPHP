@@ -27,6 +27,7 @@ class Dropdown extends Component
 {
 
     protected $label = '';
+    protected $list = array();
 
     /**
      * @var \BootstrapPHP\CSS\Buttons\DropdownButton
@@ -47,7 +48,8 @@ class Dropdown extends Component
     public function getOptions()
     {
         return [
-            'label'
+            'label',
+            'list'
         ];
     }
 
@@ -58,13 +60,13 @@ class Dropdown extends Component
 
     protected function getList()
     {
-        return "<ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu1\">
-                    <li><a href=\"#\">Action</a></li>
-                    <li><a href=\"#\">Another action</a></li>
-                    <li><a href=\"#\">Something else here</a></li>
-                    <li role=\"separator\" class=\"divider\"></li>
-                    <li><a href=\"#\">Separated link</a></li>
-                  </ul>";
+        $unordered_list = '';
+
+        foreach ($this->list as $item) {
+            $unordered_list .= "<li>{$item}</li>";
+        }
+
+        return "<ul class=\"dropdown-menu\">{$unordered_list}</ul>";
     }
 
     public function __toString()
