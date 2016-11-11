@@ -13,6 +13,12 @@ namespace BootstrapPHP\CSS\Buttons;
 
 use BootstrapPHP\Helpers\Caret;
 
+/**
+ * Class DropdownButton
+ *
+ * @package BootstrapPHP\CSS\Buttons
+ * @author Milos Danilov <milosdanilov@gmail.com>
+ */
 class DropdownButton extends Button
 {
     /**

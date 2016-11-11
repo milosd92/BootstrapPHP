@@ -18,6 +18,14 @@ use BootstrapPHP\Helpers\Component;
 /**
  * Class Dropdown
  *
+ * Creates a Bootstrap Dropdown
+ * 
+ * Available properties:
+ * <ul>
+ *  <li>label</li>
+ *  <li>list</li>
+ * </ul>
+ *
  * @link http://getbootstrap.com/components/#dropdowns
  *
  * @package BootstrapPHP\Components
