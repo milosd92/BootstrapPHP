@@ -8,17 +8,19 @@
  * file that was distributed with this source code.
  */
 
-namespace BootstrapPHP\Helpers;
+namespace BootstrapPHP\Components\Dropdown;
 
 /**
  * Class Divider
  *
- * Creates a divider / separator.
+ * Add a divider to separate series of links in a dropdown menu.
+ *
+ * @link http://getbootstrap.com/components/#dropdowns-divider
  *
  * @package BootstrapPHP\Helpers
  * @author Milos Danilov <milosdanilov@gmail.com>
  */
-class Divider
+class DropdownDivider
 {
     public function __toString()
     {

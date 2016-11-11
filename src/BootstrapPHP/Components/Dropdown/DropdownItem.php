@@ -10,7 +10,12 @@
 
 namespace BootstrapPHP\Components\Dropdown;
 
-
+/**
+ * Class DropdownItem
+ *
+ * @package BootstrapPHP\Components\Dropdown
+ * @author Milos Danilov <milosdanilov@gmail.com>
+ */
 class DropdownItem
 {
     protected $content;

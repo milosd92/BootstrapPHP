@@ -15,6 +15,8 @@ namespace BootstrapPHP\Components\Dropdown;
  *
  * Creates a header in dropdown list.
  *
+ * @link http://getbootstrap.com/components/#dropdowns-headers
+ *
  * @package BootstrapPHP\Components\Dropdown
  * @author Milos Danilov <milosdanilov@gmail.com>
  */
