@@ -12,7 +12,6 @@ namespace BootstrapPHP\CSS\Buttons;
 
 
 use BootstrapPHP\Components\Glyphicon;
-use BootstrapPHP\Helpers\Caret;
 use BootstrapPHP\Helpers\Element;
 
 /**
@@ -53,11 +52,6 @@ class Button extends Element
     protected $isActive = false;
     protected $isDisabled = false;
 
-    /**
-     * @var \BootstrapPHP\Helpers\Caret
-     */
-    protected $caret = null;
-
     public function __construct(array $options)
     {
         parent::__construct($options);
@@ -80,16 +74,6 @@ class Button extends Element
         $this->isDisabled = $disabled;
     }
 
-    public function addCaret()
-    {
-        $this->caret = new Caret();
-    }
-
-    public function __toString()
-    {
-        return "<button type='button' class='{$this->getClasses()}' {$this->getDisabled()}>{$this->getContent()}</button>";
-    }
-
     protected function getActive()
     {
         return $this->isActive ? self::ACTIVE : '';
@@ -110,18 +94,18 @@ class Button extends Element
         return !is_null($this->glyphicon) ? $this->glyphicon : '';
     }
 
-    protected function getCaret()
-    {
-        return !is_null($this->caret) ? $this->caret : '';
-    }
-
     protected function getContent()
     {
-        return trim($this->getGlyphicon() . ' ' . $this->label . ' ' . $this->getCaret());
+        return trim($this->getGlyphicon() . ' ' . $this->label);
     }
 
     protected function getClasses()
     {
         return trim("btn {$this->style} {$this->size} {$this->getBlock()} {$this->getActive()}");
+    }
+
+    public function __toString()
+    {
+        return "<button type='button' class='{$this->getClasses()}' {$this->getDisabled()}>{$this->getContent()}</button>";
     }
 }

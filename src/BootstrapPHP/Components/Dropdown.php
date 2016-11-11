@@ -12,6 +12,7 @@ namespace BootstrapPHP\Components;
 
 
 use BootstrapPHP\CSS\Buttons\Button;
+use BootstrapPHP\CSS\Buttons\DropdownButton;
 use BootstrapPHP\Helpers\Component;
 
 /**
@@ -28,7 +29,7 @@ class Dropdown extends Component
     protected $buttonLabel = '';
 
     /**
-     * @var \BootstrapPHP\CSS\Buttons\Button
+     * @var \BootstrapPHP\CSS\Buttons\DropdownButton
      */
     protected $button = null;
 
@@ -36,7 +37,7 @@ class Dropdown extends Component
     {
         parent::__construct($options);
 
-        $this->button = new Button([
+        $this->button = new DropdownButton([
             'label' => $this->buttonLabel
         ]);
 
