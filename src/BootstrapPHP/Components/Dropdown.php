@@ -12,7 +12,6 @@ namespace BootstrapPHP\Components;
 
 
 use BootstrapPHP\Components\Dropdown\DropdownDirection;
-use BootstrapPHP\CSS\Buttons\Button;
 use BootstrapPHP\CSS\Buttons\DropdownButton;
 use BootstrapPHP\Helpers\Component;
 
@@ -71,13 +70,7 @@ class Dropdown extends Component
 
     protected function getList()
     {
-        $unordered_list = '';
-
-        foreach ($this->list as $item) {
-            $unordered_list .= "<li>{$item}</li>";
-        }
-
-        return "<ul class='dropdown-menu'>{$unordered_list}</ul>";
+        return $this->list;
     }
 
     protected function getDirection()
