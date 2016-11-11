@@ -26,7 +26,7 @@ use BootstrapPHP\Helpers\Component;
 class Dropdown extends Component
 {
 
-    protected $buttonLabel = '';
+    protected $label = '';
 
     /**
      * @var \BootstrapPHP\CSS\Buttons\DropdownButton
@@ -38,7 +38,7 @@ class Dropdown extends Component
         parent::__construct($options);
 
         $this->button = new DropdownButton([
-            'label' => $this->buttonLabel
+            'label' => $this->label
         ]);
 
         $this->button->addCaret();
@@ -47,7 +47,7 @@ class Dropdown extends Component
     public function getOptions()
     {
         return [
-            'buttonLabel'
+            'label'
         ];
     }
 
