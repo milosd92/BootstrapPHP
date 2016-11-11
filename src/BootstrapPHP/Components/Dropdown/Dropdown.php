@@ -8,10 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace BootstrapPHP\Components;
+namespace BootstrapPHP\Components\Dropdown;
 
 
-use BootstrapPHP\Components\Dropdown\DropdownDirection;
 use BootstrapPHP\CSS\Buttons\DropdownButton;
 use BootstrapPHP\Helpers\Component;
 
@@ -24,6 +23,7 @@ use BootstrapPHP\Helpers\Component;
  * <ul>
  *  <li>label</li>
  *  <li>list</li>
+ *  <li>direction</li>
  * </ul>
  *
  * @link http://getbootstrap.com/components/#dropdowns
