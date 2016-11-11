@@ -77,7 +77,7 @@ class Dropdown extends Component
             $unordered_list .= "<li>{$item}</li>";
         }
 
-        return "<ul class=\"dropdown-menu\">{$unordered_list}</ul>";
+        return "<ul class='dropdown-menu'>{$unordered_list}</ul>";
     }
 
     protected function getDirection()
