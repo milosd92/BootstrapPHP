@@ -12,6 +12,7 @@ namespace BootstrapPHP\CSS\Buttons;
 
 
 use BootstrapPHP\Components\Glyphicon;
+use BootstrapPHP\Helpers\Caret;
 use BootstrapPHP\Helpers\Element;
 
 /**
@@ -52,6 +53,11 @@ class Button extends Element
     protected $isActive = false;
     protected $isDisabled = false;
 
+    /**
+     * @var \BootstrapPHP\Helpers\Caret
+     */
+    protected $caret = null;
+
     public function __construct(array $options)
     {
         parent::__construct($options);
@@ -72,6 +78,11 @@ class Button extends Element
     public function setDisabled($disabled = true)
     {
         $this->isDisabled = $disabled;
+    }
+
+    public function addCaret()
+    {
+        $this->caret = new Caret();
     }
 
     public function __toString()
@@ -99,15 +110,14 @@ class Button extends Element
         return !is_null($this->glyphicon) ? $this->glyphicon : '';
     }
 
+    protected function getCaret()
+    {
+        return !is_null($this->caret) ? $this->caret : '';
+    }
+
     protected function getContent()
     {
-        $glyphicon = $this->getGlyphicon();
-
-        if (!empty($glyphicon)) {
-            return $glyphicon . ' ' . $this->label;
-        }
-
-        return $this->label;
+        return trim($this->getGlyphicon() . ' ' . $this->label . ' ' . $this->getCaret());
     }
 
     protected function getClasses()

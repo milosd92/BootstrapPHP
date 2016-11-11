@@ -39,6 +39,8 @@ class Dropdown extends Component
         $this->button = new Button([
             'label' => $this->buttonLabel
         ]);
+
+        $this->button->addCaret();
     }
 
     public function getOptions()
@@ -48,18 +50,10 @@ class Dropdown extends Component
         ];
     }
 
-//    protected function getCaret()
-//    {
-//        return new Caret();
-//    }
-
-//    protected function getButton()
-//    {
-//        return "<button class=\"btn btn-default dropdown-toggle\" type=\"button\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"true\">
-//                    {$this->buttonLabel}
-//                    {$this->getCaret()}
-//                  </button>";
-//    }
+    public function getButton()
+    {
+        return $this->button;
+    }
 
     protected function getList()
     {
@@ -75,7 +69,7 @@ class Dropdown extends Component
     public function __toString()
     {
         return "<div class=\"dropdown\">
-                  {$this->button}
+                  {$this->getButton()}
                   {$this->getList()}
                 </div>";
     }
