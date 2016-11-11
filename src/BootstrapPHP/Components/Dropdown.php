@@ -68,9 +68,6 @@ class Dropdown extends Component
 
     public function __toString()
     {
-        return "<div class=\"dropdown\">
-                  {$this->getButton()}
-                  {$this->getList()}
-                </div>";
+        return "<div class=\"dropdown\">{$this->getButton()}{$this->getList()}</div>";
     }
 }
