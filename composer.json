@@ -10,7 +10,9 @@
       "email": "milosdanilov@gmail.com"
     }
   ],
-  "require": {},
+  "require": {
+    "myclabs/php-enum": "^1.5"
+  },
   "autoload": {
     "psr-4": {
       "BootstrapPHP\\": "src/BootstrapPHP/"

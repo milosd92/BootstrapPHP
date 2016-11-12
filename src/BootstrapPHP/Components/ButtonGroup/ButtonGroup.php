@@ -12,7 +12,6 @@ namespace BootstrapPHP\Components\ButtonGroup;
 
 
 use BootstrapPHP\CSS\Buttons\Button;
-use BootstrapPHP\CSS\Buttons\ButtonSize;
 use BootstrapPHP\Helpers\Component;
 
 /**
@@ -28,7 +27,11 @@ use BootstrapPHP\Helpers\Component;
 class ButtonGroup extends Component
 {
     protected $buttons = array();
-    protected $size = ButtonSize::NORMAL;
+
+    /**
+     * @var ButtonGroupSize
+     */
+    protected $size = null;
 
     public function __construct(array $options)
     {
@@ -40,6 +43,10 @@ class ButtonGroup extends Component
             if (!$button instanceof Button) {
                 throw new \InvalidArgumentException("ButtonGroup 'buttons' can accept only instance of Button");
             }
+        }
+
+        if (isset($options['size']) && !$options['size'] instanceof ButtonGroupSize) {
+            throw new \InvalidArgumentException("ButtonGroup 'size' can accept only enums of ButtonGroupSize type");
         }
 
         parent::__construct($options);
@@ -55,7 +62,7 @@ class ButtonGroup extends Component
 
     protected function getSize()
     {
-        return $this->size;
+        return !is_null($this->size) ? $this->size : ButtonGroupSize::NORMAL();
     }
 
     public function __toString()
