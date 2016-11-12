@@ -12,6 +12,7 @@ namespace BootstrapPHP\Components\ButtonGroup;
 
 
 use BootstrapPHP\CSS\Buttons\Button;
+use BootstrapPHP\CSS\Buttons\ButtonSize;
 use BootstrapPHP\Helpers\Component;
 
 /**
@@ -27,6 +28,7 @@ use BootstrapPHP\Helpers\Component;
 class ButtonGroup extends Component
 {
     protected $buttons = array();
+    protected $size = ButtonSize::NORMAL;
 
     public function __construct(array $options)
     {
@@ -46,12 +48,18 @@ class ButtonGroup extends Component
     public function getOptions()
     {
         return [
-            'buttons'
+            'buttons',
+            'size'
         ];
+    }
+
+    protected function getSize()
+    {
+        return $this->size;
     }
 
     public function __toString()
     {
-        return "<div class='btn-group' role='group'>" . implode('', $this->buttons) . "</div>";
+        return "<div class='btn-group {$this->getSize()}' role='group'>" . implode('', $this->buttons) . "</div>";
     }
 }
